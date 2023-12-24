@@ -1,0 +1,58 @@
+.task {
+    width: 40%;
+    padding: 2rem;
+    margin-bottom: 1.6rem;
+    border-radius: 0.4rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 500;
+    display: inline-block;
+    color: #000;
+    margin: 0;
+}
+
+.checkbox {
+    display: inline-block;
+    margin-right: 1.2rem;
+    height: 24px;
+    width: 24px;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.delete {
+    position: absolute;
+    right: 1.2rem;
+    padding: 0.8rem;
+    margin: 0;
+    height: 16px;
+    width: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.72;
+    font-weight: 600;
+    border: 0.5px solid black;
+    background-color: #fffeee;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.Low {
+    background-color: #fdff9f;
+}
+
+.Medium {
+    background-color: #ffbb34;
+}
+
+.High {
+    background-color: #ff7e7e;
+}

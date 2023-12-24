@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Complete React Project",
+      "description": "Finish the task manager app using React.",
+      "priority": "High",
+      "status": "In Progress",
+      "dueDate": "2023-11-30"
+    },
+    {
+      "id": 2,
+      "title": "Prepare for Interview",
+      "description": "Review common interview questions and prepare answers.",
+      "priority": "Medium",
+      "status": "To Do",
+      "dueDate": "2023-12-05"
+    },
+    {
+      "id": 3,
+      "title": "Read React Documentation",
+      "description": "Stay updated on the latest React features.",
+      "priority": "Low",
+      "status": "Done",
+      "dueDate": "2023-11-25"
+    }
+  ]
+}

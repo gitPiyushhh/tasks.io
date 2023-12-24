@@ -1,0 +1,41 @@
+.taskList {
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 8rem;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.progress {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.query {
+    padding: 1.2rem;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 100%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.query__box {
+    width: 40vw;
+    display: inline-block;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    position: absolute;
+    right: 0.8rem;
+    background-color: #000;
+    padding: 0.8rem;
+    border-radius: 0.4rem;
+    color: #fff
+}
