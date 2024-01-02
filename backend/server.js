@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 */
 const DATABASE = "mongodb+srv://piyushhh:<PASSWORD>@tasks.wz82puo.mongodb.net/?retryWrites=true"
 const DATABASE_PASSWORD = "Password"
-const PORT = 8000
+const PORT = process.env.PORT ||  8000
 
 const app = require("./app");
 
