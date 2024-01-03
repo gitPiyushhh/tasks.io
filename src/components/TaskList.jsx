@@ -72,56 +72,69 @@ function TaskList() {
   //     .then((data) => dispatch({ type: "dataLoaded", payload: data }));
   // }, []);
 
-  useEffect(function () {
-    fetch("https://tasks-api-0xkn.onrender.com/api/v1/tasks")
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! Status: ${res.status}`);
-        }
-        return res.json();
-      })
-      .then((data) =>
-        dispatch({ type: "dataLoaded", payload: data.data.tasks })
-      )
-      .catch((error) => console.error("Fetch error:", error));
-  }, [state.tasks.length]);
+  useEffect(
+    function () {
+      fetch("https://tasks-api-0xkn.onrender.com/api/v1/tasks")
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(`HTTP error! Status: ${res.status}`);
+          }
+          return res.json();
+        })
+        .then((data) =>
+          dispatch({ type: "dataLoaded", payload: data.data.tasks })
+        )
+        .catch((error) => console.error("Fetch error:", error));
+    },
+    [state.tasks.length]
+  );
 
   return (
-    <div
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-    >
-      <div className={styles.taskList}>
-        {state.tasks.map((task) => (
-          <Task task={task} key={task._id} dispatch={dispatch} />
-        ))}
+    <>
+      <span className={styles.heading}>Tasks.io</span>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <div className={styles.taskList}>
+          {state.tasks.map((task) => (
+            <Task task={task} key={task._id} dispatch={dispatch} />
+          ))}
+        </div>
+
+        <p className={styles.progress}>
+          {state.tasks.length > 0
+            ? state.tasks.length !== state.progress
+              ? `Done- ${state.progress} / ${state.tasks.length}`
+              : `All tasks completed, add new 🥳`
+            : "No tasks to show, add new 💼"}
+        </p>
+
+        <span className={styles.query__box}>
+          <input
+            type="text"
+            value={state.query}
+            className={styles.query}
+            onChange={(e) =>
+              dispatch({ type: "addingTask", payload: e.target.value })
+            }
+          />
+
+          <button
+            className={styles.button}
+            onClick={() =>
+              dispatch({ type: "taskAdded", payload: state.query })
+            }
+          >
+            Add task
+          </button>
+        </span>
       </div>
-
-      <p className={styles.progress}>
-        {state.tasks.length > 0
-          ? state.tasks.length !== state.progress
-            ? `Done- ${state.progress} / ${state.tasks.length}`
-            : `All tasks completed, add new 🥳`
-          : "No tasks to show, add new 💼"}
-      </p>
-
-      <span className={styles.query__box}>
-        <input
-          type="text"
-          value={state.query}
-          className={styles.query}
-          onChange={(e) =>
-            dispatch({ type: "addingTask", payload: e.target.value })
-          }
-        />
-
-        <button
-          className={styles.button}
-          onClick={() => dispatch({ type: "taskAdded", payload: state.query })}
-        >
-          Add task
-        </button>
-      </span>
-    </div>
+    </>
   );
 }
 

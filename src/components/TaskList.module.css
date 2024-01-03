@@ -8,6 +8,16 @@
     align-items: center;
 }
 
+.heading {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: 2rem;
+    font-weight: bold;
+}
+
 .progress {
     font-size: 24px;
     font-weight: 500;
