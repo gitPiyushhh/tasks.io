@@ -11,7 +11,7 @@ function Task({ task, dispatch }) {
 
   async function handleDelete(taskId) {
     try {
-      await fetch(`http://localhost:8000/api/v1/tasks/${taskId}`, {
+      await fetch(`https://tasks-api-0xkn.onrender.com/api/v1/tasks/${taskId}`, {
         method: "DELETE",
       });
     } catch (err) {

@@ -30,7 +30,7 @@ const reducer = function (state, action) {
         query: "",
       };
       // Remote state update
-      fetch("http://localhost:8000/api/v1/tasks", {
+      fetch("https://tasks-api-0xkn.onrender.com/api/v1/tasks", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -73,7 +73,7 @@ function TaskList() {
   // }, []);
 
   useEffect(function () {
-    fetch("http://localhost:8000/api/v1/tasks")
+    fetch("https://tasks-api-0xkn.onrender.com/api/v1/tasks")
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -84,7 +84,7 @@ function TaskList() {
         dispatch({ type: "dataLoaded", payload: data.data.tasks })
       )
       .catch((error) => console.error("Fetch error:", error));
-  }, [state.tasks]);
+  }, [state.tasks.length]);
 
   return (
     <div
